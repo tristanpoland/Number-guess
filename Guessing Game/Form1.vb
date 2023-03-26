@@ -17,8 +17,18 @@
         Correct = False
         Count = 1
 
+        'could we add a questionbox thingy whatever that asks "how much guesses you want, 10 is default" mode? maybe i'll work on that next year
+
         Do While Count < 11 And Correct = False 'Gives user 10 guesses
+
             Guess = InputBox("Enter Guess", "Attempt " & Count & " of 10")
+            'Check if numberlol
+            If IsNumeric(Guess) And Int(Guess) = Guess Then
+                Exit Do
+            Else
+                MsgBox("Invalid input! Please enter (whole) number!")
+            End If
+
             If Val(Guess) = Number Then 'If guess is correct set correct to true
                 Correct = True
             Else
@@ -32,9 +42,9 @@
             End If
         Loop
         If Count < 11 Then
-            MsgBox("YAY You guessed it, have a coffee!. The correct guess was:" & Number)
+            MsgBox("YAY You guessed it, have a coffee! The correct guess was: " & Number & " debug: your inputted 'guess' value is " & Guess)
         ElseIf Count > 10 Then
-            MsgBox("Oops, You ran out of guesses!. The correct guess was:" & Number)
+            MsgBox("Oops, You ran out of guesses! The correct guess was: " & Number & " debug: your inputted 'guess' value is " & Guess)
         End If
     End Sub
 End Class
