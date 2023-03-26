@@ -1,0 +1,17 @@
+D:\!.Code\..Projects\GitHub\Number-guess\Guessing Game\bin\Release\net6.0-windows\Guessing Game.exe
+D:\!.Code\..Projects\GitHub\Number-guess\Guessing Game\bin\Release\net6.0-windows\Guessing Game.deps.json
+D:\!.Code\..Projects\GitHub\Number-guess\Guessing Game\bin\Release\net6.0-windows\Guessing Game.runtimeconfig.json
+D:\!.Code\..Projects\GitHub\Number-guess\Guessing Game\bin\Release\net6.0-windows\Guessing Game.dll
+D:\!.Code\..Projects\GitHub\Number-guess\Guessing Game\bin\Release\net6.0-windows\Guessing Game.pdb
+D:\!.Code\..Projects\GitHub\Number-guess\Guessing Game\obj\Release\net6.0-windows\Guessing Game.vbproj.AssemblyReference.cache
+D:\!.Code\..Projects\GitHub\Number-guess\Guessing Game\obj\Release\net6.0-windows\Guessing_Game.Form1.resources
+D:\!.Code\..Projects\GitHub\Number-guess\Guessing Game\obj\Release\net6.0-windows\Guessing Game.vbproj.GenerateResource.cache
+D:\!.Code\..Projects\GitHub\Number-guess\Guessing Game\obj\Release\net6.0-windows\Guessing Game.GeneratedMSBuildEditorConfig.editorconfig
+D:\!.Code\..Projects\GitHub\Number-guess\Guessing Game\obj\Release\net6.0-windows\Guessing Game.AssemblyInfoInputs.cache
+D:\!.Code\..Projects\GitHub\Number-guess\Guessing Game\obj\Release\net6.0-windows\Guessing Game.AssemblyInfo.vb
+D:\!.Code\..Projects\GitHub\Number-guess\Guessing Game\obj\Release\net6.0-windows\Guessing Game.vbproj.CoreCompileInputs.cache
+D:\!.Code\..Projects\GitHub\Number-guess\Guessing Game\obj\Release\net6.0-windows\Guessing Game.dll
+D:\!.Code\..Projects\GitHub\Number-guess\Guessing Game\obj\Release\net6.0-windows\refint\Guessing Game.dll
+D:\!.Code\..Projects\GitHub\Number-guess\Guessing Game\obj\Release\net6.0-windows\Guessing Game.pdb
+D:\!.Code\..Projects\GitHub\Number-guess\Guessing Game\obj\Release\net6.0-windows\Guessing Game.genruntimeconfig.cache
+D:\!.Code\..Projects\GitHub\Number-guess\Guessing Game\obj\Release\net6.0-windows\ref\Guessing Game.dll

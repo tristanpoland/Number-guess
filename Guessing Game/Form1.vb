@@ -11,37 +11,55 @@
         Dim Count, Number As Integer
         Dim Correct As Boolean
         Dim Guess As String
-        Dim disableErrorHandlerMsgs As Boolean 'haha, im learning by looking at the code
+        'Dim disableErrorHandlerMsgs As Boolean 'haha, im learning by looking at the code
 
         Randomize()
         Number = Int(Rnd() * 100) + 1 'Selects Random Number
         Correct = False
         Count = 1
-        disableErrorHandlerMsgs = True 'NOTICE: this code does not disable all error handler stuff, and only hides the "an error occured".
-        '^ on first pass, ignore it because we're passing through (i could make this a lot better but who cares)
+        Dim disableErrorHandlerMsgs As Boolean = True 'this code does not disable all error handler stuff, and only hides the "an error occured".
+        Dim isDebugMode As Boolean = True 'i can make this one line, less compiler optimization!
+        Dim exitTyped As Boolean = False
 
+        If Val(isDebugMode) = True Then
+            MsgBox("DEBUG: the answer is " & Number)
+        End If
 ErrorHandler:
         If Val(disableErrorHandlerMsgs) = False Then
             MsgBox("An error occurred, did you type a non-number? (error details): " & Err.Description & " and DEH is " & disableErrorHandlerMsgs)
             Err.Clear()
-        Else 'its disabled
         End If
-
-        'could add a questionbox thingy whatever that asks "how much guesses you want, 10 is default" mode? maybe i'll work on that next year
 
         Do While Count < 11 And Correct = False 'Gives user 10 guesses
             disableErrorHandlerMsgs = False 'Reenable error messages incase of an exception
             On Error GoTo ErrorHandler 'attribution: chatgpt :skull:
 
-            Guess = InputBox("Enter Guess", "Attempt " & Count & " of 10")
+            Guess = InputBox("Enter Guess", "Attempt " & Count & " of 10. type 'exit' to quit the game.") 'i cant get "type 'exit' to exit" kind of thing.
+
+            If Guess = "exit" Then
+                exitTyped = True
+                GoTo ExitGame
+            End If
+
             'overly complicated number checker that took me 2 hours to implent along with the label ErrorHandler
-            If IsNumeric(Guess) Then
-                MsgBox("is a number")
-                'do not put an "exit do" here, this will completely skip all checks at checking if the number is low or not and stuff, which is how it added a hour to developing like 20 lines of code
+            If IsNumeric(Guess) And Int(Guess) = Guess Then
+                If isDebugMode = True Then
+                    MsgBox("is a number")
+                End If
             Else
-                disableErrorHandlerMsgs = True 'reenable because we're going to the label
-                'could have made a better approach to this issue of it still resuming but it works and i will never touch it ever ever again.
+                disableErrorHandlerMsgs = True 'reenable because we're going to the label... could have made a better approach to this issue of it still resuming but it works and i will never touch it ever ever again.
                 MsgBox("Invalid input! Please enter (whole) number!")
+                GoTo ErrorHandler
+            End If
+
+            If Val(Guess) < 1 Then 'mitigate negative numbers
+                disableErrorHandlerMsgs = True
+                MsgBox("Please enter a number higher than 1")
+                GoTo ErrorHandler
+            End If
+            If Val(Guess) > 99 Then
+                disableErrorHandlerMsgs = True
+                MsgBox("Please enter a number lower than 100")
                 GoTo ErrorHandler
             End If
 
@@ -58,9 +76,17 @@ ErrorHandler:
             End If
         Loop
         If Count < 11 Then
-            MsgBox("YAY You guessed it, have a coffee! The correct guess was: " & Number & " debug: your inputted 'guess' value is " & Guess) 'no, there will be no null-ref exception on runtime i think
+            If Count = 1 Then
+                MsgBox("Horray! you guessed it first try, have a coffee! The correct guess was: " & Number)
+            Else
+                MsgBox("YAY You guessed it at count " & Count & ", have a coffee! The correct guess was: " & Number)
+            End If
         ElseIf Count > 10 Then
-            MsgBox("Oops, You ran out of guesses! The correct guess was: " & Number & " debug: your inputted 'guess' value is " & Guess)
+                MsgBox("Oops, You ran out of guesses! The correct guess was: " & Number & " and your last guess was: " & Guess) 'no there will be no nullpointer at runtime lmao
+        End If
+ExitGame:
+        If Val(exitTyped) = True Then
+            MsgBox("You forfeited, that's okay! The correct guess was: " & Number)
         End If
     End Sub
 End Class
